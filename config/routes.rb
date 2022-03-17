@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :careers
   resources :commitments
   resources :plans
   root 'home#index'
