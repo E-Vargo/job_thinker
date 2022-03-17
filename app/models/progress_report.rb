@@ -1,0 +1,2 @@
+class ProgressReport < ApplicationRecord
+end
