@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_141211) do
+ActiveRecord::Schema.define(version: 2022_03_17_144908) do
+
+  create_table "commitments", force: :cascade do |t|
+    t.integer "plan_id"
+    t.integer "user_id"
+    t.string "type"
+    t.integer "passion_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "plans", force: :cascade do |t|
     t.integer "steps"
