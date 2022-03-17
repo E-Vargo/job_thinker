@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :plans
   root 'home#index'
   get 'home/about'
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 end
