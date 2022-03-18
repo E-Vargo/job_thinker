@@ -5,7 +5,7 @@ class Career < ApplicationRecord
     has_many :users, through: :progress_reports
 
     #validations
-     validate :name, :competitive, presence: true 
+     validates :name, :competitive, presence: true 
      validates :field, length: { in: 3..50}
      validates :avg_salary, numericality: {in: 1..1000000}
      validates :typical_personality, length: { in: 3..30}

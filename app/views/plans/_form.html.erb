@@ -1,0 +1,36 @@
+
+<div>
+<%= form_for @plan do |f| %>
+
+        <% if @plan.career.nil? %>
+
+            <%= f.label :career_id %>
+            <%= f.select :career_id, options_from_collection_for_select(Career.all, :id, :name) %>
+            
+            <%= f.label :Add_new_career %>
+            <%= link_to "by following this link.", new_career_path %>
+
+        <% else %>
+
+            <%= hidden_field_tag "plan[career_id]", @plan.career_id %>
+
+        <% end %>
+
+        <%= f.label :name%>
+        <%= f.text_field :name %>
+
+        <%= f.label :steps %>
+        <%= f.number_field :steps %>
+
+        <br/>
+        <br/>
+
+        <%= f.label :description %>
+        <br/>
+        <%= f.text_area :description, size: "100x20" %>
+        <br/>
+
+    <%= f.submit%>
+<% end %>
+</div>
+blah blah blah
