@@ -1,7 +1,7 @@
 class ProgressReportsController < ApplicationController
     
     def index
-        @progress_reports = ProgressReport.all
+        @progress_reports = ProgressReport.ordered_by_recent
     end
     
     def show
