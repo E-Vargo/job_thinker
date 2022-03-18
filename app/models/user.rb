@@ -6,10 +6,11 @@ class User < ApplicationRecord
   has_many :careers, through: :progress_reports 
 
 #validations
-validates :name, length: {minimum: 3}
+#validates :name, length: {minimum: 3}
 validates :email, uniqueness: true 
 
 #Devise
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[github]
