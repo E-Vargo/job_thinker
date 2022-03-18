@@ -5,5 +5,5 @@ class ProgressReport < ApplicationRecord
 
     #validations 
     validates :content, length: {in: 150..3500}
-    validates :date, presence: true
+    validates_presence_of :name
 end
