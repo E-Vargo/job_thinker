@@ -1,1 +1,9 @@
-this is where you will go after login
+
+<% @plans.each do |p| %>
+    <h2><%= link_to p.name, plan_path(p) %></h2>
+        <p>Number of Steps: <%= p.steps %></p>
+<% end %>
+<br/>
+
+
+<%= link_to 'Add Plan', new_plan_path %>

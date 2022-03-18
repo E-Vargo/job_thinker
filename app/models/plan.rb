@@ -5,9 +5,8 @@ class Plan < ApplicationRecord
     has_many :commitments
 
     #validations
-    validates_presence_of :name
-    validates_presence_of :steps
-    validates :description, length: {in: 300..10000}
+    #validates :name, :steps, presence: true
+    #validates :description, length: {in: 3..10000}
 
     #scopes
     scope :ordered_by_steps, -> {order(steps: :asc)}

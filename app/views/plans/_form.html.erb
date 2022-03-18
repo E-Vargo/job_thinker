@@ -3,7 +3,7 @@
 <%= form_for @plan do |f| %>
 
         <% if @plan.career.nil? %>
-
+        
             <%= f.label :career_id %>
             <%= f.select :career_id, options_from_collection_for_select(Career.all, :id, :name) %>
             
