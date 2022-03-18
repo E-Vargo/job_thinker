@@ -10,5 +10,5 @@ class Plan < ApplicationRecord
     validates :description, length: {in: 300..10000}
 
     #scopes
-    scope :ordered_by_steps, -> {order(steps: :desc)}
+    scope :ordered_by_steps, -> {order(steps: :asc)}
 end

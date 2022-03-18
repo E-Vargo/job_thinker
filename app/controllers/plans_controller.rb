@@ -20,6 +20,9 @@ class PlansController < ApplicationController
     
     def edit
         @plan = Plan.find(params[:id])
+            if current_user.id != @plan.user_id
+                redirect_to plans_path, warning: "Cannot edit a plan that isn't yours!"
+            end
     end
     
     def update
