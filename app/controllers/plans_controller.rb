@@ -13,6 +13,9 @@ class PlansController < ApplicationController
     end
     
     def create
+        @plan = Plan.create(plan_params)
+        @plan.user_id = current_user.id
+        redirect_to career_plan_path(@plan)
     end
     
     def edit
@@ -22,6 +25,13 @@ class PlansController < ApplicationController
     end
     
     private
-    def plans_params
+    def plan_params
+        params.require(:plan).permit(
+            :name,
+            :career_id,
+            :user_id,
+            :description,
+            :steps
+        )
     end
 end
