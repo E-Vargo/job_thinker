@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :careers, through: :progress_reports 
 
 #validations
-#validates :name, length: {minimum: 3}
 validates :email, uniqueness: true 
 
 #Devise

@@ -11,14 +11,7 @@
         <li class="nav-item">
         <%= link_to 'About', home_about_path, class:"nav-link" %>
         </li>
-        
-        <li class="nav-item">
-        <%= link_to 'Sign Up', signup_path, class:"nav-link" %>
-        </li>
 
-        <li class="nav-item">
-        <%= link_to 'Login', login_path, class:"nav-link" %>
-        </li>
         <% if current_user %>
             <li class="nav-item">
             <%= link_to 'Logout', logout_path, class:"nav-link" %>
@@ -35,6 +28,16 @@
             <li class="nav-item">
             <%= link_to 'Progress Entries', progress_reports_path, class:"nav-link" %>
             </li>
+        <% else %>
+                        
+            <li class="nav-item">
+            <%= link_to 'Sign Up', signup_path, class:"nav-link" %>
+            </li>
+
+            <li class="nav-item">
+            <%= link_to 'Login', login_path, class:"nav-link" %>
+            </li>
+
         <% end %>
    
       </ul>
