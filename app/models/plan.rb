@@ -8,4 +8,7 @@ class Plan < ApplicationRecord
     validates_presence_of :name
     validates_presence_of :steps
     validates :description, length: {in: 300..10000}
+
+    #scopes
+    scope :ordered_by_steps, -> {order(steps: :desc)}
 end

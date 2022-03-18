@@ -1,7 +1,7 @@
 class CareersController < ApplicationController
 
     def index
-        @careers = Career.all
+        @careers = Career.ordered_by_salary
     end
     
     def show
