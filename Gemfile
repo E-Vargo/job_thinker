@@ -13,8 +13,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+
+gem 'omniauth'
+gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+gem 'activerecord-session_store'
 # gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.4', require: false

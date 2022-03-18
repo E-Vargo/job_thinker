@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
 
     def index
-        @plans = Plan.all
+        @plans = Plan.ordered_by_steps
     end
     
     def show
