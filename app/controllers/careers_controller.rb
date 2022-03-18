@@ -14,7 +14,7 @@ class CareersController < ApplicationController
     
     def create
         @career = Career.create(career_params)
-        redirect_to career_path
+        redirect_to careers_path
     end
     
     def edit

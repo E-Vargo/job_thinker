@@ -5,7 +5,7 @@ class PlansController < ApplicationController
     end
     
     def show
-        
+        @plan = Plan.find(params[:id])
     end
     
     def new
@@ -19,6 +19,7 @@ class PlansController < ApplicationController
     end
     
     def edit
+        @plan = Plan.find(params[:id])
     end
     
     def update

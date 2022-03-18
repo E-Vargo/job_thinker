@@ -1,0 +1,6 @@
+<% @careers.each do |c| %>
+    <h2><%= link_to c.name, career_path(c) %></h2>
+        <p>Average Salary $<%= c.avg_salary %></p>
+<% end %>
+<br/>
+<%= link_to 'Add Career', new_career_path %>
