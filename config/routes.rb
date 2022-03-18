@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   get 'home/about'
 
   #resources
-  resources :progress_reports
-  resources :careers
+  resources :progress_reports, :except => [:delete]
   resources :commitments
   resources :plans
 
-  #resource specifications 
-
+  #resource nesting
+  resources :careers do 
+    resources :plans, only: => [:show, :new] 
+  end
 
   #Devise routes
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
