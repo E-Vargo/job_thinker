@@ -1,9 +1,12 @@
 
 
-<div>
-    <h2><%= @career.name %></h2>
-    Field: <%= @career.field %><br/>
-    Average Salary: $<%= @career.avg_salary %><br/>
-    Competitive?: <%= @career.competitive ? "Yes" : "No"%><br/>
-    Typical Personality: <%= @career.typical_personality %><br/>
-</div>
+<div class="jumbotron">
+    <h2 class="display-4"><%= @career.name %></h2>
+    <h4 class="lead">Field: <%= @career.field %></h4>
+    <h4 class="lead">Average Salary: $<%= @career.avg_salary %></h4>
+    <h4 class="lead">Competitive?: <%= @career.competitive ? "Yes" : "No"%></h4>
+    <h4 class="lead">Typical Personality: <%= @career.typical_personality %></h4>
+    <hr class="my-4">
+    <%= link_to 'To Careers', careers_path, class:"btn btn-outline-info"%>
+</div> 
+

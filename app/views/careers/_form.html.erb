@@ -1,35 +1,31 @@
 
 <div>
 <%= form_for @career do |f| %>
-
-        <%= f.label :name%>
-        <%= f.text_field :name %>
-
+    <div class="form-group">
+        <%= f.label :Title %>
+        <%= f.text_field :name, class:"form-control" %>
+    </div>
         <br/>
-        <br/>
-
+    <div class="form-group">
         <%= f.label :field %>
-        <%= f.text_field :field %>
-
+        <%= f.text_field :field, class:"form-control" %>
+    </div>
         <br/>
+    <div class="form-group">
+        <%= f.label :average_salary %>
+        <%= f.number_field :avg_salary, class:"form-control" %>
+    </div>
         <br/>
-
-        <%= f.label :competitive %>
-        <%= f.select :competitive, options_for_select([true, false]) %>
-
-        <br/>
-        <br/>
-
-        <%= f.label :avg_salary %>
-        <%= f.number_field :avg_salary %>
-
-        <br/>
-        <br/>
-
+    <div class="form-group">
         <%= f.label :typical_personality %>
-        <%= f.text_field :typical_personality %>
+        <%= f.text_field :typical_personality, class:"form-control" %>
+    </div>
         <br/>
-
-    <%= f.submit "Submit Career" %>
+    <div class="form-group">
+        <%= f.label :competitive %>
+        <%= f.select :competitive, options_for_select([true, false]), class:"form-control" %>
+    </div>
+        <br/>
+    <%= f.submit "Submit Career", class:"btn btn-outline-info" %>
 <% end %>
 </div>
