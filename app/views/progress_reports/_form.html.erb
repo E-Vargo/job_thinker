@@ -1,0 +1,34 @@
+<div>
+<%= form_for @progress_report do |f| %>
+
+        <% if @progress_report.career.nil? %>
+        
+            <%= f.label :career_id %>
+            <%= f.select :career_id, options_from_collection_for_select(Career.all, :id, :name) %>
+            
+            <%= f.label :Which_career_are_you_moving_towards? %>
+            <%= link_to "Add new career by following this link.", new_career_path %>
+
+        <% else %>
+
+            <%= hidden_field_tag "progress_report[career_id]", @progress_report.career_id %>
+
+        <% end %>
+
+        <%= f.label :Title %>
+        <%= f.text_field :name %>
+
+        <%= f.label :Date %>
+        <%= f.datetime_field :date %>
+
+        <br/>
+        <br/>
+
+        <%= f.label :Content %>
+        <br/>
+        <%= f.text_area :content, size: "100x20" %>
+        <br/>
+
+    <%= f.submit "Submit Progress Entry" %>
+<% end %>
+</div>

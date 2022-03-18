@@ -1,0 +1,11 @@
+<% @progress_reports.each do |p| %>
+    <%= p.name %><br/>
+    <%= p.date %><br/>
+    <%= p.content %><br/>
+    <% if current_user.id == p.user_id %>
+        <%= link_to 'Edit This Entry', edit_progress_report_path(p) %>
+    <% end %>
+    <br/>
+<% end %>
+<%= link_to 'New Entry', new_progress_report_path %>
+is this right
