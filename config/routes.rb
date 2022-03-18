@@ -1,9 +1,30 @@
 Rails.application.routes.draw do
+
+  #home
+  root 'home#index'
+  get 'home/about'
+
+  #resources
   resources :progress_reports
   resources :careers
   resources :commitments
   resources :plans
-  root 'home#index'
-  get 'home/about'
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  #resource specifications 
+
+
+  #Devise routes
+    devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+    devise_scope :user do 
+      get 'login', to: 'devise/sessions#new'
+    end
+
+    devise_scope :user do 
+      get 'logout', to: 'devise/sessions#destroy'
+    end
+
+    devise_scope :user do
+      get 'signup', to: 'devise/registrations#new'
+    end
 end
