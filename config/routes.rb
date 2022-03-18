@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   #resource nesting
   resources :careers do 
-    resources :plans, only: => [:show, :new] 
+    resources :plans, only: [:show, :new] 
   end
 
   #Devise routes
