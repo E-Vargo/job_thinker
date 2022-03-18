@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
 
+
   #resources
   resources :progress_reports, :except => [:delete]
   resources :commitments
   resources :plans
+  get '/users', to: 'plans#index'
 
   #resource nesting
   resources :careers do 
