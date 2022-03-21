@@ -15,9 +15,13 @@ class PlansController < ApplicationController
     
     def create
         plan = Plan.create(plan_params)
+        if !plan.valid? 
+            redirect_to new_plan_path, warning: "Invalid parameters!"
+        else 
         plan.user_id = current_user.id
         plan.save 
         redirect_to career_plan_path(plan.career_id, plan)
+        end
     end
     
     def edit
@@ -31,7 +35,11 @@ class PlansController < ApplicationController
     def update
         plan = Plan.find(params[:id])
         plan.update(plan_params)
+        if !plan.valid?
+            redirect_to edit_plan_path(plan), warning: "Invalid Parameters"
+        else
         redirect_to plan_path(plan)
+        end
     end
     
     private
