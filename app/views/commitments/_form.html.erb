@@ -1,0 +1,17 @@
+<div>
+<%= form_for @commitment do |f| %>
+    <div class="form-group">
+        <%= f.label :What_is_this_commitment_to? %>
+        <%= f.text_field :name, class:"form-control" %>
+    </div>
+        <br/>
+    <div class="form-group">
+        <%= f.label :passion_level %>
+        <%= f.number_field :passion_level, class:"form-control", in: 1..10 %>
+    </div>
+        <br/>
+
+        <br/>
+    <%= f.submit "Create Commitment", class:"btn btn-outline-info" %>
+<% end %>
+</div>

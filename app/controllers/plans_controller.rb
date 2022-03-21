@@ -2,6 +2,7 @@ class PlansController < ApplicationController
 
     def index
         @plans = Plan.ordered_by_steps
+        @commitment = Commitment.new 
     end
     
     def show
@@ -21,11 +22,11 @@ class PlansController < ApplicationController
     
     def create
         plan = Plan.create(plan_params)
+        plan.user_id = current_user.id
+        plan.save
         if !plan.valid? 
             redirect_to new_plan_path, warning: "Invalid parameters!"
-        else 
-        plan.user_id = current_user.id
-        plan.save 
+        else  
         redirect_to career_plan_path(plan.career_id, plan)
         end
     end

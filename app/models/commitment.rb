@@ -4,6 +4,6 @@ class Commitment < ApplicationRecord
     belongs_to :user
 
     #validations 
-    validates_presence_of :type 
-    validates_presence_of :passion_level
+    validates :name, presence: true
+    validates :passion_level, numericality: {in: 1..10}
 end
