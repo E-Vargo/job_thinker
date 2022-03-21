@@ -14,16 +14,13 @@ class CareersController < ApplicationController
     
     def create
         @career = Career.create(career_params)
+        if !@career.valid? 
+            redirect_to new_career_path, warning: "Invalid Parameters!
+        else
         redirect_to careers_path
+        end
     end
-    
-    def edit
-        @career = Career.find(params[:id])
-    end
-    
-    def update
-    end
-    
+
     private
 
     def career_params
