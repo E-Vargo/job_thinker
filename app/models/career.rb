@@ -13,4 +13,6 @@ class Career < ApplicationRecord
 
      #scopes
      scope :ordered_by_salary, -> {order(avg_salary: :desc)}
+     scope :highest_paying, -> {order(avg_salary: :desc).first}
+     scope :lowest_paying, -> {order(avg_salary: :asc).first}
 end

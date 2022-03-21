@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   #home
   root 'home#index'
   get 'home/about'
-
-
+  
   #resources
   resources :progress_reports, :except => [:delete]
   resources :commitments
@@ -15,6 +14,12 @@ Rails.application.routes.draw do
     resources :plans, only: [:show, :new] 
   end
 
+  #scopes 
+  get 'careers/highest-paying' => 'careers#show'
+  get 'careers/lowest-paying' => 'careers#show'
+  get 'plans/fewest-steps' => 'plans#show'
+  get 'plans/most-steps' => 'plans#show'
+  
   #Devise routes
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}
 

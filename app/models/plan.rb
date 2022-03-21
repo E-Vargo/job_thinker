@@ -11,4 +11,6 @@ class Plan < ApplicationRecord
 
     #scopes
     scope :ordered_by_steps, -> {order(steps: :asc)}
+    scope :fewest_steps, -> {order(steps: :asc).first}
+    scope :most_steps, -> {order(steps: :desc).first}
 end

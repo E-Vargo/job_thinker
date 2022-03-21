@@ -5,7 +5,13 @@ class PlansController < ApplicationController
     end
     
     def show
+        if params[:id] == 'fewest-steps'
+            @plan = Plan.fewest_steps
+        elsif params[:id] == 'most-steps'
+            @plan = Plan.most_steps
+        else
         @plan = Plan.find(params[:id])
+        end
         @career = Career.find_by(id: [@plan.career_id])
     end
     
