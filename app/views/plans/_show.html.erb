@@ -1,8 +1,10 @@
 
 <br/>
+
+
+<p class="lead">Plan Name: <%= @plan.name %></p>
 <br/>
+<p class="lead">Career: <%= @career.name %></p>
+<p class="lead">Description: <%= @plan.description %></p>
 
-Plan Name: <%= @plan.name %><br/>
-<p>Plan Description: <%= @plan.description %></p>
-
-<%= link_to 'Edit Plan', edit_plan_path(@plan) %>
+<%= link_to 'Edit Plan', edit_plan_path(@plan), class:"btn btn-outline-info" %>

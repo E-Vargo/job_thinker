@@ -11,7 +11,7 @@
 
         <% @plans.each do |p| %>
             <tr>
-              <td><%= link_to p.name, plan_path(p) %></td>
+              <td><%= link_to p.name, career_plan_path(p.career_id, p) %></td>
               <td><%= p.steps %></td>
             </tr>
         <% end %>
