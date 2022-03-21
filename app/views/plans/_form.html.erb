@@ -3,33 +3,41 @@
 <%= form_for @plan do |f| %>
 
         <% if @plan.career.nil? %>
-        
+        <div class="form-group">
             <%= f.label :career_id %>
-            <%= f.select :career_id, options_from_collection_for_select(Career.all, :id, :name) %>
-            
-            <%= f.label :Add_new_career %>
-            <%= link_to "by following this link.", new_career_path %>
+            <%= f.select :career_id, options_from_collection_for_select(Career.all, :id, :name), class:"form-control"  %>
+        </div>
 
+        <div class="form-group">
+            <%= f.label :Add_new_career %>
+            <%= link_to "by following this link.", new_career_path%>
+        </div>
+        
         <% else %>
 
             <%= hidden_field_tag "plan[career_id]", @plan.career_id %>
 
         <% end %>
 
-        <%= f.label :name%>
-        <%= f.text_field :name %>
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class:"form-control"  %>
+        </div>
 
-        <%= f.label :steps %>
-        <%= f.number_field :steps %>
+        <div class="form-group">
+            <%= f.label :steps %>
+            <%= f.number_field :steps, class:"form-control"  %>
+        </div>
 
         <br/>
         <br/>
 
-        <%= f.label :description %>
+        <div class="form-group">
+            <%= f.label :description %>
+            <br/>
+            <%= f.text_area :description, size: "100x20", class:"form-control"  %>
+        </div>
         <br/>
-        <%= f.text_area :description, size: "100x20" %>
-        <br/>
-
-    <%= f.submit "Submit Plan" %>
+    <%= f.submit "Submit Plan", class:"btn btn-outline-info" %>
 <% end %>
 </div>

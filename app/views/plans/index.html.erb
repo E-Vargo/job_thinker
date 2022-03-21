@@ -1,9 +1,22 @@
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
 
-<% @plans.each do |p| %>
-    <h2><%= link_to p.name, plan_path(p) %></h2>
-        <p>Number of Steps: <%= p.steps %></p>
-<% end %>
-<br/>
+        <tr>
+            <th>Plan Title</th>
+            <th>Number of Steps</th>
+        </tr>
 
+    </thead>
+    <tbody>
+
+        <% @plans.each do |p| %>
+            <tr>
+              <td><%= link_to p.name, plan_path(p) %></td>
+              <td><%= p.steps %></td>
+            </tr>
+        <% end %>
+
+    </tbody>
+</table>
 
 <%= link_to 'Add Plan', new_plan_path, class:"btn btn-outline-info" %>
