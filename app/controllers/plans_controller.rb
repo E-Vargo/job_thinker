@@ -2,7 +2,7 @@ class PlansController < ApplicationController
 
     def index
         @plans = Plan.ordered_by_steps
-        @commitment = Commitment.new 
+        @commitments = Commitment.ordered_by_passion_level
     end
     
     def show

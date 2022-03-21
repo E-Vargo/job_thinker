@@ -1,14 +1,21 @@
 
 <div class="jumbotron">
-<% if @commitments %>
-    <% @commitments.each do |c| %>
-        <p class="display-4">Commitment: <%= c.name %></p>
-        <br/>
-        <p class="lead">Passion Level: <%= c.passion_level %></p>
-            <% if c.plan_id %>
-            <p class="lead">Associated Plan: <%= Plan.find_by(id: :plan_id).name %></p>
+    <% if @commitments %>
+
+        <% @commitments.each do |c| %>
+            <% if c.user_id == current_user.id %>
+                <p class="lead">Commitment: <%= c.name %></p>
+                <p class="lead">Passion Level: <%= c.passion_level %></p>
+                    <% if  c.plan %>
+                         <p class="lead">Associated Plan: <%= c.plan.name %></p>
+                    <% end %>
+                <hr class="my-4">
             <% end %>
-        <hr class="my-4">
+        <% end %>
+
+    <% else %>
+
+        <p class="lead">No commitments to show</p>
+
     <% end %>
-<% end %>
 </div> 

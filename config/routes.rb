@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #resources
   resources :progress_reports, :except => [:delete]
   resources :commitments
+  post '/commitments', to: 'commitments#create', as: 'create_commitment'
   resources :plans
 
   #resource nesting
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   get 'careers/lowest-paying' => 'careers#show'
   get 'plans/fewest-steps' => 'plans#show'
   get 'plans/most-steps' => 'plans#show'
-  
+
   #Devise routes
   devise_for :users, controllers: {registrations: "registrations", omniauth_callbacks: "callbacks"}
 

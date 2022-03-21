@@ -4,14 +4,17 @@ class CommitmentsController < ApplicationController
         @commitment = Commitment.new
     end
 
-    def index 
-        @commitments = Commitment.all
+
+    def show 
+        @commitment = Commitment.find(params[:id])
     end
 
     def create 
         commitment = Commitment.create(commitment_params)
+        commitment.user_id = current_user.id 
+        commitment.save
         if !commitment.valid? 
-            redirect_to plans_path, warning: "Invalid parameters!"
+            redirect_to new_commitment_path, warning: "Invalid parameters!"
         else  
         redirect_to plans_path
         end
@@ -22,7 +25,7 @@ class CommitmentsController < ApplicationController
     def commitment_params
         params.require(:commitment).permit(
             :name,
-            :career_id,
+            :plan_id,
             :user_id,
             :passion_level
         )

@@ -1,17 +1,21 @@
 <div>
-<%= form_for @commitment do |f| %>
-    <div class="form-group">
-        <%= f.label :What_is_this_commitment_to? %>
-        <%= f.text_field :name, class:"form-control" %>
-    </div>
-        <br/>
-    <div class="form-group">
-        <%= f.label :passion_level %>
-        <%= f.number_field :passion_level, class:"form-control", in: 1..10 %>
-    </div>
-        <br/>
-
-        <br/>
-    <%= f.submit "Create Commitment", class:"btn btn-outline-info" %>
-<% end %>
+    <h4 class="lead">New Commitment</h4>
+    <%= form_for @commitment do |f| %>
+        <div class="form-group">
+            <%= f.label :What_is_this_commitment_to? %>
+            <%= f.text_field :name, class:"form-control" %>
+        </div>
+            <br/>
+        <div class="form-group">
+            <%= f.label :passion_level %>
+            <%= f.number_field :passion_level, class:"form-control", in: 1..10 %>
+        </div>
+            <br/>
+        <div class="form-group">
+            <%= f.label :is_there_a_plan_associated_with_this_commitment? %>
+            <%= f.select :plan_id, options_from_collection_for_select(Plan.all, :id, :name), include_blank: "Select Plan" , class:"form-control"%>
+        </div>
+            <br/>
+        <%= f.submit "Create Commitment", class:"btn btn-outline-info" %>
+    <% end %>
 </div>
