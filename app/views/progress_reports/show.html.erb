@@ -1,6 +1,8 @@
 
-<% if current_user.id == @progress_report.user_id %>
-<%= link_to 'Edit This Entry', edit_progress_report_path(@progress_report) %>
-<% end %>
+
 <%= render partial: 'show' %>
-<%= link_to 'Progress Entries', progress_reports_path %>
+<% if current_user.id == @progress_report.user_id %>
+<%= link_to 'Edit This Entry', edit_progress_report_path(@progress_report), class:"btn btn-outline-info" %>
+<% end %>
+
+<%= link_to 'Progress Entries', progress_reports_path, class:"btn btn-outline-info" %>
