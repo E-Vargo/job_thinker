@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get 'home/about'
   
   #resources
+  resources :users, only: [:show]
   resources :progress_reports, :except => [:delete]
   resources :commitments
-  post '/commitments', to: 'commitments#create', as: 'create_commitment'
+  #post '/commitments', to: 'commitments#create', as: 'create_commitment'
   resources :plans
 
   #resource nesting

@@ -28,6 +28,10 @@
             <li class="nav-item">
             <%= link_to 'Progress Entries', progress_reports_path, class:"nav-link" %>
             </li>
+
+            <li class="nav-item">
+            <%= link_to 'Me', user_path(current_user), class:"nav-link" %>
+            </li>
         <% else %>
                         
             <li class="nav-item">
