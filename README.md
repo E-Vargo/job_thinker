@@ -14,4 +14,4 @@ This gem was developed as a rails project for Flatiron school.
 Not accepting contributions at this time.
 
 # License
-The project is available as open source under the terms of the MIT License.
+The project is available as open source under the MIT License.
