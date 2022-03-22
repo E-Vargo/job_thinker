@@ -2,27 +2,8 @@
 
 <div class="grid-container">
     <div class="grid-child" >
-    <table class="table table-striped table-bordered table-hover">
-        <thead class="table-dark">
-
-            <tr>
-                <th>Plan Title</th>
-                <th>Number of Steps</th>
-            </tr>
-
-        </thead>
-        <tbody>
-
-            <% @plans.each do |p| %>
-                <tr>
-                <td><%= link_to p.name, career_plan_path(p.career_id, p) %></td>
-                <td><%= p.steps %></td>
-                </tr>
-            <% end %>
-
-        </tbody>
-    </table>
-
+ 
+    <%= render partial: 'index' %>
 
     <%= link_to 'Add Plan', new_plan_path, class:"btn btn-outline-info" %>
     </div>

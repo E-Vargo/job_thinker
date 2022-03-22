@@ -1,25 +1,5 @@
 
-<table class="table table-striped table-bordered table-hover">
-    <thead class="table-dark">
-    <tr>
-        <th>Title</th>
-        <th>Salary</th>
-    </tr>
-    </thead>
-
-    <tbody>
-        <% @careers.each do |c| %>
-            <tr>
-
-            <td><%= link_to c.name, career_path(c) %></td>
-        
-            <td>$<%= c.avg_salary %></td>
-
-            </tr>
-        <% end %>
-    </tbody>
-</table>
-
+<%= render partial: 'index' %>
 <br/>
 
 <%= link_to 'Add Career', new_career_path, class:"btn btn-outline-info"%>

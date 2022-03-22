@@ -13,7 +13,14 @@ User:<%= @email %>
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+      <div class="accordion-body">
+        <% if @careers.count != 0 %>
+            <%= render partial: 'careers/index' %>
+        <% else %> 
+            You have no careers to show 
+        <% end %>
+      
+      </div>
     </div>
   </div>
 
@@ -26,7 +33,11 @@ User:<%= @email %>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-      
+      <% if @plans.count != 0 %>
+            <%= render partial: 'plans/index' %>
+        <% else %> 
+            You have no plans to show 
+        <% end %>
       </div>
     </div>
   </div>
@@ -40,10 +51,10 @@ User:<%= @email %>
     </h2>
     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-      <% if @progress_reports.count == 0 %>
-            You have no progress entries to show
-        <% else %> 
+      <% if @progress_reports.count != 0 %>
             <%= render partial: 'progress_reports/index' %>
+        <% else %> 
+            You have no progress entries to show
         <% end %>
       </div>
     </div>
@@ -58,7 +69,7 @@ User:<%= @email %>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
-        <% if @commitments %>
+        <% if @commitments.count != 0 %>
             <%= render partial: 'commitments/show' %>
         <% else %> 
             You have no commitments to show 
