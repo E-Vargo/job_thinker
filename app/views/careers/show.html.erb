@@ -8,9 +8,13 @@
     <h4 class="lead">Typical Personality: <%= @career.typical_personality %></h4>
     <br/>
     <h4 class="lead">Associated Plans:</h4>
-    <% @career.plans.each do |p| %>
-    <h4 class="lead"> <%= link_to p.name.capitalize, career_plan_path(p.career_id, p) %>: <%= p.description %></h4>
-    <% end %>
+        <% if @career.plans.any? %>
+            <% @career.plans.each do |p| %>
+                <h4 class="lead"> <%= link_to p.name.capitalize, career_plan_path(p.career_id, p) %>: <%= p.description %></h4>
+            <% end %>
+        <% else %> 
+            No plans to show 
+        <% end %>
     <hr class="my-4">
     <%= link_to 'To Careers', careers_path, class:"btn btn-outline-info"%>
     <%= link_to 'Make a Plan for This Career', new_career_plan_path(@career), class:"btn btn-outline-info"%>
